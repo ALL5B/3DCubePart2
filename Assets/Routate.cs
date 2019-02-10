@@ -18,11 +18,25 @@ public class Routate : MonoBehaviour
     {
         if (getFlag)
         {
-            Text cubeAngle = GameObject.Find("InputAngle/angle").GetComponent<Text>();
-            Text cubeRoute = GameObject.Find("InputRout/routate").GetComponent<Text>();
-            float rout = float.Parse(cubeRoute.text);
-            Rout(cubeAngle.text, rout);
+            Text InputRoutX = GameObject.Find("InputRoutX/routateX").GetComponent<Text>();
+            Text InputRoutY = GameObject.Find("InputRoutY/routateY").GetComponent<Text>();
+            Text InputRoutZ = GameObject.Find("InputRoutZ/routateZ").GetComponent<Text>();
+            float RoutX = float.Parse(InputRoutX.text);
+            float RoutY = float.Parse(InputRoutY.text);
+            float RoutZ = float.Parse(InputRoutZ.text);
+            Rout(RoutX,RoutY,RoutZ);
+
+
         }
+        float NowRoutX = cube.transform.rotation.eulerAngles.x;
+        float NowRoutY = cube.transform.rotation.eulerAngles.y;
+        float NowRoutZ = cube.transform.rotation.eulerAngles.z;
+        Text TextX = GameObject.Find("NowRoutX").GetComponent<Text>();
+        Text TextY = GameObject.Find("NowRoutY").GetComponent<Text>();
+        Text TextZ = GameObject.Find("NowRoutZ").GetComponent<Text>();
+        TextX.text = Math.Round(NowRoutX).ToString() + "°";
+        TextY.text = Math.Round(NowRoutY).ToString() + "°";
+        TextZ.text = Math.Round(NowRoutZ).ToString() + "°";
 
     }
 
@@ -31,7 +45,12 @@ public class Routate : MonoBehaviour
         getFlag = true;
     }
 
-    public void Rout(string angle,float rout)
+    public void InitialPosition()
+    {
+        iTween.RotateTo(cube, iTween.Hash("x", 0, "y", 0, "z", 0, "time", 1.0f));
+    }
+
+    public void Rout(float RoutX = 0,float RoutY = 0,float RoutZ = 0)
     {
         /*
         if (angle == "x")
@@ -84,7 +103,7 @@ public class Routate : MonoBehaviour
             }
         }
         */
-        iTween.RotateTo(cube, iTween.Hash(angle, rout, "time", 4.0f));
+        iTween.RotateTo(cube, iTween.Hash("x", RoutX,"y",RoutY,"z",RoutZ, "time", 4.0f));
         getFlag = false;
 
     }

@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{1056FF46-573F-9725-6A0D-8D84AD4A3964}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Routate.cs">
     <Files>
-      <File FileName="Assets/Routate.cs" Line="88" Column="25" />
-      <File FileName="../test Canvas/Assets/InputManager.cs" Line="55" Column="44" />
+      <File FileName="Assets/Routate.cs" Line="55" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

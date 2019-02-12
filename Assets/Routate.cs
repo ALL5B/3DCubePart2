@@ -29,12 +29,37 @@ public class Routate : MonoBehaviour
         {
             if (getFlag)
             {
+                float RoutX;
+                float RoutY;
+                float RoutZ;
+
                 Text InputRoutX = GameObject.Find("InputRoutX/routateX").GetComponent<Text>();
                 Text InputRoutY = GameObject.Find("InputRoutY/routateY").GetComponent<Text>();
                 Text InputRoutZ = GameObject.Find("InputRoutZ/routateZ").GetComponent<Text>();
-                float RoutX = float.Parse(InputRoutX.text);
-                float RoutY = float.Parse(InputRoutY.text);
-                float RoutZ = float.Parse(InputRoutZ.text);
+                if(InputRoutX.text == "")
+                {
+                    RoutX = 0f;
+                }
+                else
+                {
+                    RoutX = float.Parse(InputRoutX.text);
+                }
+                if (InputRoutY.text == "")
+                {
+                    RoutY = 0f;
+                }
+                else
+                {
+                    RoutY = float.Parse(InputRoutY.text);
+                }
+                if (InputRoutZ.text == "")
+                {
+                    RoutZ = 0f;
+                }
+                else
+                {
+                    RoutZ = float.Parse(InputRoutZ.text);
+                }
                 Rout(RoutX, RoutY, RoutZ);
 
 
@@ -56,6 +81,7 @@ public class Routate : MonoBehaviour
                 var targetPos = Input.mousePosition;
                 targetPos.z = 10.0f;
                 var worldPosMouse = Camera.main.ScreenToWorldPoint(targetPos);
+                Debug.Log(worldPosMouse);
                 iTween.RotateUpdate(this.gameObject, iTween.Hash("rotation", worldPosMouse * 20, "time", 2.0f));
             }
 

@@ -81,7 +81,6 @@ public class Routate : MonoBehaviour
                 var targetPos = Input.mousePosition;
                 targetPos.z = 10.0f;
                 var worldPosMouse = Camera.main.ScreenToWorldPoint(targetPos);
-                Debug.Log(worldPosMouse);
                 iTween.RotateUpdate(this.gameObject, iTween.Hash("rotation", worldPosMouse * 20, "time", 2.0f));
             }
 
